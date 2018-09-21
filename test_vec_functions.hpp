@@ -4,6 +4,12 @@
 //
 // Homework 01 - test vector functions (part 05)
 //
+// Comment for function sum (part 01)
+// a.What other test functions would you write?
+// the function to test the same size of the 2 initial vectors
+// b. Describe a situation where this function will break or give bad results?
+// when the sizes of the 2 initial vectors are not the same, the function still run and pass the test
+//
 // This function is to run the test of the four functions for vector calculation,
 // using the vector object from the standard template library (STL)
 // in the std (standard) namespace.
@@ -31,18 +37,27 @@ void print_vec(const std::vector<double> &vec) {
     //after for loop the next thing will be printed in a new line
     std::cout << '\n';
 }
-
+// Referenced from Mr. Erik Sevre
 //Homework 01-part05
 //this is a function to test part 01
 //test the function to sum the 2 vectors
 bool test_f1() {
     //assume that we have 2 vectors a and b with the double type
     std::vector<double> a={1,2,3,4,5,6};
-    std::vector<double> b={10,10,10,10,10,10};
+    std::vector<double> b={10,10,10,10,10,10,0,0,0,0};
     //the sum of these two vectors is a vector add_vec
     std::vector<double> add_vec={11,12,13,14,15,16};
     //call function sum to add 2 vectors a and b
     auto sum_vec=sum(a,b);
+    //print out begin of test for function sum
+    std::cout<<"-- test the function to sum the 2 vectors --  \n";
+    //print out the 2 initial vectors
+    std::cout<<"the two initial vectors is: \n";
+    print_vec(a);
+    print_vec(b);
+    //print out the sum of the 2 vectors calculated by function sum
+    std::cout<<"the sum of the two initial vectors is: \n";
+    print_vec(sum_vec);
     //create a bool variable to test the true or false of function
     bool test=true;
         //if an element of calculated vector sum_vec is smaller or bigger than
@@ -67,6 +82,15 @@ bool test_f2() {
     double dot_product=4;
     //call function dot to calculate the dot product of 2 vectors a and b
     auto dot_vec=dot(a,b);
+    //print out begin of test for function dot
+    std::cout<<"-- test the function to calculate the dot product of the 2 vectors --  \n";
+    //print out the 2 initial vectors
+    std::cout<<"the two initial vectors is: \n";
+    print_vec(a);
+    print_vec(b);
+    //print out the dot product of the 2 vectors calculated by function dot
+    std::cout<<"the dot product of the two initial vectors is: \n";
+    std::cout<<dot_vec<<std::endl;
     //if the calculated dot product value  is smaller or bigger than
     // the limit [dot_product-10^-8,dot_product+10^-8]
     // with an acceptable tolerance is 10^-8 then test failed
@@ -88,6 +112,15 @@ bool test_f3() {
     // with the start and stop values are 1 and 6, respectively
     // the number of values is 6
     auto lin_vec=linspace(1,6,6);
+    //print out begin of test for function linspace
+    std::cout<<"-- test the function to generate a vector of linearly spaced values --  \n";
+    //print out the initial vector, the start, stop values and number of points
+    std::cout<<"the initial vector, which has 6 elements from 1 to 6, is: \n";
+    print_vec(a);
+    //print out the generated vector of linearly spaced values by function linspace
+    std::cout<<"the generated vector of linearly spaced values \n";
+    std::cout<<"with start value = 1, stop value = 6, and number of points = 6 is:  \n";
+    print_vec(lin_vec);
     //if each generated values  is smaller or bigger than
     // the limit [true value-10^-8,true value+10^-8]
     // with an acceptable tolerance is 10^-8 then test failed
@@ -114,6 +147,17 @@ bool test_f4() {
     double int_true=12;
     //call function integrate to compute the integral (area under y) for two vectors x and y
     auto integral=integrate(x,y);
+    //print out begin of test for function integrate
+    std::cout<<"-- test the function to compute the integral --  \n";
+    std::cout<<"-- (area under y) for two vectors x and y --  \n";
+    //print out the 2 initial vectors
+    std::cout<<"the two initial vectors is: \n";
+    print_vec(x);
+    print_vec(y);
+    //print out the the integral (area under y) for two vectors x and y (y = f(x))
+    // calculated by function integrate
+    std::cout<<"the integral (area under y) for two vectors x and y (y = f(x)) is: \n";
+    std::cout<<integral<<std::endl;
     //if the integral value  is smaller or bigger than
     // the limit [int_true-10^-8,int_true+10^-8]
     // with an acceptable tolerance is 10^-8 then test failed
@@ -124,7 +168,7 @@ bool test_f4() {
     }
 }
 
-// Todo Reference from Mr. Erik Sevre
+// Referenced from Mr. Erik Sevre
 // Run tests on a function and named input
 bool run_test(
         std::function<bool(void)> fnc,
@@ -139,6 +183,8 @@ bool run_test(
     } else {
         std::cout << "[XX] : test of function FAILED -> " << function_name << '\n';
     }
+    //create a line to change the test for the next function.
+    std::cout << "------------------------------------------------------\n";
     return val;
 }
 //this function is to run all the tests by calling the function run_test above
