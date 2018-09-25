@@ -3,7 +3,7 @@
 // SNU-ID: 2018-36543
 //
 // Homework 01 - test vector functions (part 05)
-//
+// The codes here have been uploaded to https://github.com/phamngockien/TPCS2018/commits/master
 // 5.1. Comment for function sum (part 01) to calculate the sum of 2 vectors
 // a.What other test functions would you write?
 // the function to test the same size of the 2 initial vectors
