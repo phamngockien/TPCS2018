@@ -23,7 +23,8 @@ std::vector<double> sum(const std::vector<double> &a,
     // create result vector with the size of vector a
     std::vector<double> result(a.size());
     // this for loop is to push each sum of elements of vectors a and b into result vector, respectively.
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i)
+    {
         result[i]= a[i] + b[i];
     }
     // return the result
@@ -41,7 +42,8 @@ double dot(const std::vector<double> &a,
     double result=0;
     // this for loop is to calculate the dot product
     // which is the sum of all multiples a[i]*b[i] of two vectors a and b
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i)
+    {
         result += a[i] * b[i];
     }
     // return the result
@@ -60,7 +62,8 @@ const std::vector<double> linspace(const double &start,
     std::vector<double> lin_vec(num_points);
     //this loop is to generate a vector of linearly spaced values
     //with the step size = (stop value - start value)/(number of values - 1)
-    for (int i = 0; i < num_points; ++i) {
+    for (int i = 0; i < num_points; ++i)
+    {
         lin_vec[i]=start+i*(stop-start)/(num_points-1);
     }
     //return the result vector
@@ -79,7 +82,8 @@ double integrate(const std::vector<double> &x,
     //this loop is to integrate the two vectors by using trapezoidal rule
     //which using the average height of each interval to compute the area of each interval.
     //And just sum up all the interval areas
-    for (int i = 1; i <x.size(); ++i) {
+    for (int i = 1; i <x.size(); ++i)
+    {
         integral+=(x[i]-x[i-1])*(y[i]+y[i-1])/2;
     }
     // return the result
