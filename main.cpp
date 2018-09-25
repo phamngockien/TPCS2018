@@ -3,7 +3,7 @@
 // SNU-ID: 2018-36543
 //
 // Homework 01
-//
+// The codes here have been uploaded to https://github.com/phamngockien/TPCS2018/commits/master
 // In this homework we will write several simple functions for vector calculation,
 // using the vector object from the standard template library (STL)
 // in the std (standard) namespace.
